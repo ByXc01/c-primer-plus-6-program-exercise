@@ -5,7 +5,7 @@
  * Compilation: arm-linux-androideabi-clang 4.0
  * Date: 20170511
  * Github: ByXc01
- * Bolg: http://ByXc01.io
+ * Bolg: http://ByXc01.github.io
  */
 
 #include <stdio.h>
