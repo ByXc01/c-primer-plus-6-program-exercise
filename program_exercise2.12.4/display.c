@@ -1,5 +1,12 @@
-/* 20170511 -- ByXc */
-/* compilation compile: gcc 6.3.0 for msys2 */
+/* File: diaplay.c
+ * Author: ByXc
+ * About: display
+ * Version: 1.0
+ * Compilation: arm-linux-androideabi-clang 4.0
+ * Date: 20170511
+ * Github: ByXc01
+ * Bolg: http://ByXc01.io
+ */
 
 #include <stdio.h>
 

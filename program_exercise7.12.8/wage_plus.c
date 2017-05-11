@@ -1,5 +1,12 @@
-/* 20170510 -- ByXc */
-/* 修正版加強版     */
+/* File: wage_plus.c
+ * Author: ByXc
+ * About: wage plus
+ * Version: 1.0
+ * Compilation: arm-linux-androideabi-clang 4.0
+ * Date: 20170511
+ * Github: ByXc01
+ * Bolg: http://ByXc01.io
+ */
 
 #include <stdio.h>
 #include <string.h>

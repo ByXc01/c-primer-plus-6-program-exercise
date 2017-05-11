@@ -1,6 +1,13 @@
-/* 20170511 -- ByXc */
-/* compilation: gcc 6.3.0 ofr mysy2 */
-
+/* File: my_name.c
+ * Author: ByXc
+ * About: my name
+ * Version: 1.0
+ * Compilation: arm-linux-androideabi-clang 4.0
+ * Date: 20170511
+ * Github: ByXc01
+ * Bolg: http://ByXc01.io
+ */
+ 
 #include <stdio.h>
 int main(void)
 {

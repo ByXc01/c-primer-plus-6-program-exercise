@@ -1,6 +1,13 @@
-/* 20170510 -- ByXc */
-/* 修正版           */
-
+/* File: wage.c
+ * Author: ByXc
+ * About: wage
+ * Version: 2.0
+ * Compilation: arm-linux-androideabi-clang 4.0
+ * Date: 20170511
+ * Github: ByXc01
+ * Bolg: http://ByXc01.io
+ */
+ 
 #include <stdio.h>
 
 #define RATE1 0.15                  // <= 300 的稅率

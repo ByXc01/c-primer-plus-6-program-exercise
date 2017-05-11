@@ -1,5 +1,12 @@
-/* 20170511 -- ByXc */
-/* compilation: gcc 6.3.0 for msys2 */
+/* File: name_address.c
+ * Author: ByXc
+ * About: name and address
+ * Version: 1.0
+ * Compilation: arm-linux-androideabi-clang 4.0
+ * Date: 20170511
+ * Github: ByXc01
+ * Bolg: http://ByXc01.io
+ */
 
 #include <stdio.h>
 int main(void)
