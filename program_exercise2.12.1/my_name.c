@@ -1,5 +1,5 @@
 /* 20170511 -- ByXc */
-/* compilation compile: msys2 gcc6.3.0 */
+/* compilation: gcc 6.3.0 ofr mysy2 */
 
 #include <stdio.h>
 int main(void)
