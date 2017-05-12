@@ -5,7 +5,7 @@
  * Compilation: gcc 6.3.0 for msys2
  * Date: 20170512
  * Github: ByXc01
- * Bolg: http://ByXc01.github.io
+ * Blog: http://ByXc01.github.io
  */
 
 #include <stdio.h>
