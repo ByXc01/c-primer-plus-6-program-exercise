@@ -19,6 +19,6 @@ int main(void)
     printf("Please enter quart: ");
     scanf("%f", &fl_input);
 
-    db_total = fl_input * fl_quart_k * fl_water_k;
+    db_total = fl_input * fl_quart_k / fl_water_k;
     printf("%f quart = %e k water \n", fl_input, db_total);
 }
