@@ -1,6 +1,6 @@
-/* File: primer.c
+/* File: prime.c
  * Author: ByXc
- * About: primer
+ * About: prime
  * Version: 1.0
  * Compilation: gcc 5.3.0 for MinGw
  * Date: 20170513
@@ -10,9 +10,10 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+
 int main(void)
 {
-	int i_primer, i_number;
+	int i_prime, i_number;
 	int i_count, i_index;
 	bool B_true;
 	
@@ -35,8 +36,8 @@ loop:
 					}
 					if (B_true)
 					{
-						i_primer = i_count;
-						printf("%2d ", i_primer);
+						i_prime = i_count;
+						printf("%2d ", i_prime);
 					}
 				}
 				printf("\nThe all. \n");

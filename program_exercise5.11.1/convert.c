@@ -16,16 +16,16 @@ int main(void)
 	int i_input_minute;					//用戶輸入的分鐘數
 	
 	printf("Please enter the number of minutes you want to convert(<= 1)：");
-	scanf("%d", &i_sec2);
+	scanf("%d", &i_input_minute);
 	
-	while (i_sec2 >= 1)
+	while (i_input_minute >= 1)
 	{
-		i_hour = i_sec2 / CUH_SEC;
-		i_sec  = i_sec2 % CUH_SEC;
-		printf("%4d minute, %4d hour %4d minutes \n", i_sec2, i_hour, i_sec);
+		i_hour = i_input_minute / CUH_MINUTE;
+		i_minute  = i_input_minute % CUH_MINUTE;
+		printf("%4d minute, %4d hour %4d minutes \n", i_input_minute, i_hour, i_minute);
 		
-		printf("Please enter the next number to be relaced: \n");
-		scanf("%d", &i_sec2);
+		printf("Please enter the next number to be relaced(0 to quit): \n");
+		scanf("%d", &i_input_minute);
 	}
 	printf("Done! \n");
 	

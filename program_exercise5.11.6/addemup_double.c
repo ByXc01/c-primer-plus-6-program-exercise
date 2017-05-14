@@ -11,16 +11,19 @@
 #include <stdio.h>
 int main(void)
 {
-	int i_days, i_sum;
+	int i_days, i_sum, i_count;
 	char ch_judge;
 	do
 	{
+		i_count = i_sum = 0;
 		printf("Please input the number of business days you want to query:");
+		
 		scanf("%d", &i_days);
-		i_sum = i_days * i_days;
+		while (i_count++ < i_days)
+			i_sum += i_days * i_days;
 		printf("The number of days you work for %d days, salary of $ %d .", i_days, i_sum);	
 		
-		printf("Whether to continue? (iput Y continue)):\n");
+		printf("Whether to continue? (input Y continue)):\n");
 		scanf(" %c", &ch_judge);
 	}while (ch_judge == 'y' || ch_judge == 'Y');
 	printf("Bey!");

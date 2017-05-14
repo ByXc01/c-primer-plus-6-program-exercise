@@ -17,6 +17,7 @@ int main(void)
 	
 	single_interest = compound_interest = CFL_PRINCIPAL;
 	i_count_year = 0;
+	
 	do
 	{
 		++i_count_year;
@@ -24,36 +25,40 @@ int main(void)
 		compound_interest *= 1 + 0.05;															//復合利息投資：餘額本金 += 餘額本金* 利息
 		
 	}while (single_interest >= compound_interest);
+	
 	printf("%d years Deirdre balance = %g beyond Daphne balance = %g \n",
 	i_count_year, compound_interest, single_interest);
+	
 	return 0;
 }
-
 /*推薦此版本， 簡單明了。
-  剛開始以為是錯的。
-  後來對結果不太滿意，
-  一直摸索才做出
-  來。此版本有幾個地方做
-  很巧妙。（註明：轉載）
+ * 標準答案。
+ */
  
+/* per6-16c */
+/*
 #include <stdio.h>
-#define NUM 100.0
-#define SIG 0.1
-#define DOU 0.05
+
+#define RATE_SIMP 0.10
+#define RATE_COMP 0.05
+#define INIT_AMT 100.0
+ 
 int main(void)
 {
-	double dap = NUM;
-	double dei = NUM;
-	int list = 0;
-	
-	do
+	double daphne = INIT_AMT;
+	double deidre = INIT_AMT;
+	int years = 0;
+	 
+	while (deidre <= daphne)
 	{
-		dap += NUM * SIG;
-		dei += dei * DOU;
-		list++;
-	}while (dap >= dei);
-	printf("%d年 Daphe 投资有%.f, Deirdre 投资有%.2f", list, dap, dei);
-	
+		daphne += RATE_SIMP * INIT_AMT;
+		deidre += RATE_COMP * deidre;
+		++years;
+	}
+	printf("Inverstment values after %d years: \n", years);
+	printf("Daphne: $%.2f \n", daphne);
+	printf("Deidre: $%.2f \n", deidre);
+	 
 	return 0;
 }
 */

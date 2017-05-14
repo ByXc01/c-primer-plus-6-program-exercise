@@ -16,7 +16,7 @@ int main(void)
 {
 	int i_input;
 	double db_sum1, db_sum2;
-	double db_number1, db_number2, db_temp;
+	double db_number, db_temp;
 	
 	printf("Please enter a number:");
 	scanf("%d", &i_input);
@@ -26,11 +26,11 @@ int main(void)
 		db_sum1 = db_sum2 = 1.0;
 		db_temp = -1.0;
 		//printf("%g + ", CDB_ONE);
-		for (db_number1 = 2.0; db_number1 <= i_input; db_number1++)
+		for (db_number = 2.0; db_number <= i_input; db_number++)
 		{
-			db_sum1 += CDB_ONE / db_number1;
-			//printf("%g / %g +  ", CDB_ONE, db_number1);
-			db_sum2 += db_temp / db_number1;
+			db_sum1 += CDB_ONE / db_number;
+			//printf("%g / %g +  ", CDB_ONE, db_number);
+			db_sum2 += db_temp / db_number;
 			db_temp *= CDB_ONE2;
 		}
 			printf("= %g \n", db_sum1);

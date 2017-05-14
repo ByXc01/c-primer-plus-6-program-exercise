@@ -12,17 +12,15 @@
 int main(void)
 {
 	int i_input, i_i;
-	i_input = i_i = 0;
 	
-	printf("Please enter integer:");
+	printf("Please enter an integer:");
 	scanf("%d", &i_input);
 	
-	while (i_i <= 10)
-	{
-		printf("%3d", i_input++);
-		i_i++;
-	}
-	printf("\n Done! \n");
+	i_i = i_input;
+	while (i_i <= i_input + 10)
+		printf("%3d ", i_i++);
+	
+	printf("\nDone! \n");
 	
 	return 0;
 }

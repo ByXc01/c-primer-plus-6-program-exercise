@@ -18,6 +18,7 @@ int main(void)
 	{
 		i_count++;
 		printf("(%2c %2d) ", ch_character, ch_character);
+		
 		if (i_count % 8 == 0)
 			putchar('\n');
 	}

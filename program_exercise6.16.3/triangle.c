@@ -26,11 +26,11 @@ int main(void)
 /*
 如果你的系統不是使用ASCII或其他數字順序編碼的代碼，可以使用此版本
 #include <stdio.h>
-#define D_MAX 26
+#define MAX 26
 int main(void)
 {
 	int i_row, i_col;
-	char ch_letter[D_MAX + 1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char ch_letter[MAX + 1] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	
 	for (i_row = 1; i_row <= 6; i_row++)
 	{

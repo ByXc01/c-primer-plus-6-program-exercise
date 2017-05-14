@@ -1,6 +1,6 @@
 /* File: replace.c
  * Author: ByXc
- * About: replace
+ * About: replace . and !
  * Version: 1.0
  * Compilation: gcc 5.3.0 for MinGw
  * Date: 20170513
@@ -26,14 +26,13 @@ int main(void)
 		else if ('!' == ch_character)
 		{
 			i_replace_number2++;
-			putchar('!');
-			putchar('!');
+			printf("!!");
 		}
 		else
 			putchar(ch_character);
 	}
 	printf("%d replacement(s) of . with ! \n", i_replace_number1);
-	printf("%d replacement(s) of : with :: \n", i_replace_number2);
+	printf("%d replacement(s) of ! with !! \n", i_replace_number2);
 	
 	return 0;
 }

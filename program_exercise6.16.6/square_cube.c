@@ -22,7 +22,7 @@ int main(void)
 		l_square = i_number * i_number;
 		l_cube   = i_number * i_number * i_number;		//也可以偷懒写成l_cube = l_square * i_number;
 		
-		printf("%3d %10ld %10ld\n", i_number, l_square, l_cube);
+		printf("%3d %10ld %9ld\n", i_number, l_square, l_cube);
 	}
 	printf("The all! \n");
 	

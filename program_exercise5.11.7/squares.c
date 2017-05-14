@@ -1,6 +1,6 @@
-/* File: double_squares.c
+/* File: cube.c
  * Author: ByXc
- * About: double squares
+ * About: cube
  * Version: 1.0
  * Compilation: gcc 5.3.0 for MinGw
  * Date: 20170513
@@ -10,25 +10,26 @@
 
 #include <stdio.h>
 
-void squares(double dbl_number);
+void cube(double db_number);
 int main(void)
 {
-	double dbl_input;
-	printf("Please enter a number of type double:");
-	scanf("%lf", &dbl_input);
+	double db_input;
 	
-	while (dbl_input > 0)
+	printf("Please enter a number of type double:");
+	scanf("%lf", &db_input);
+	
+	while (db_input > 0)
 	{
-		squares(dbl_input);
+		cube(db_input);
 		printf("Please continue enter a number of type double:");
-		scanf("%lf", &dbl_input);
+		scanf("%lf", &db_input);
 	}
 	printf("Bey! \n");
 	
 	return 0;
 }
 
-void squares(double dbl_number)
+void cube(double db_number)
 {
-	printf("The number of the square is %3.2f", dbl_number * dbl_number);
+	printf("TThe cube of %f is %f", db_number, db_number * db_number * db_number);
 }

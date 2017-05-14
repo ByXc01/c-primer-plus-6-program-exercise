@@ -1,4 +1,4 @@
-/* File: mod.c
+/* File: moduli.c
  * Author: ByXc
  * About: mod
  * Version: 1.0
@@ -12,9 +12,11 @@
 int main(void)
 {
 	int i_modulus, i_number, i_sum;						//用戶輸入的模,求模數，餘數
+	
 	printf("This program computes moduli. \n");
 	printf("Enter an integer to  serve as the second operand:");
 	scanf("%d", &i_modulus);
+	
 	printf("Now enter the first operand:");
 	scanf("%d", &i_number);
 	

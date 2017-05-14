@@ -9,18 +9,18 @@
  */
 
 #include <stdio.h>
+#define MAX 8
 int main(void)
 {
-	const unsigned short CHU_MAX = 8;
-	int i_index, i_array[CHU_MAX];
+	int i_index, i_array[MAX];
 	
-	printf("Please enter %d integer. \n", CHU_MAX);
-	for (i_index = 0; i_index < CHU_MAX; i_index++)
+	printf("Please enter %d integer. \n", MAX);
+	for (i_index = 0; i_index < MAX; i_index++)
 		scanf("%d", &i_array[i_index]);
 		
 	printf("Here in reverse order, are the values you entered:");
 	while (--i_index >= 0)				//利用前綴自減的特性
-		printf("%d", i_array[i_index]);
+		printf("%2d ", i_array[i_index]);
 	
 	return 0;
 }

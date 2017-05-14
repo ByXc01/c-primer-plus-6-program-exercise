@@ -1,6 +1,6 @@
 /* File: letter.c
  * Author: ByXc
- * About: letter
+ * About: This imlementation assumes the character codes are sequentital, as they are in ASCII.
  * Version: 1.0
  * Compilation: gcc 5.3.0 for MinGw
  * Date: 20170513
@@ -18,8 +18,8 @@ int main(void)
 	
 	for (i_index = 0; i_index < SIZE; i_index++)
 	{
-		ch_letter[i_index] = 97 + i_index;
-		printf("%2c", ch_letter[i_index]);
+		ch_letter[i_index] = 97 + i_index;                 // 這是小寫字母在 ASCII 碼錶的編號
+		printf("%2c ", ch_letter[i_index]);
 	}
 	printf("\nBye! \n");
 	

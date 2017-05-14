@@ -11,22 +11,22 @@
 #include <stdio.h>
 int main(void)
 {
-	char ch_character;									//用戶輸入的字符
-	int i_space, i_newlin, i_other_character;			//分别是空格、回車和其它字符的計數
-	i_space = i_newlin = i_other_character = 0;
+	char ch_characters;									//用戶輸入的字符
+	int i_spaces, i_newlines, i_other_characters;			//分别是空格、回車和其它字符的計數
+	i_spaces = i_newlines = i_other_characters = 0;
 	
 	printf("Please enter string.(# to quit): \n");
-	while ((ch_character = getchar()) != '#')
+	while ((ch_characters = getchar()) != '#')
 	{
-		if (' ' == ch_character)
-			i_space++;
-		else if ('\n' == ch_character)
-			i_newlin++;
+		if (' ' == ch_characters)
+			i_spaces++;
+		else if ('\n' == ch_characters)
+			i_newlines++;
 		else
-			i_other_character++;
+			i_other_characters++;
 	}
-	printf("%d space, %d enter, %d character. \n",
-			i_space, i_newlin, i_other_character);
+	printf("%d space, %d newlin, %d other characters. \n",
+			i_spaces, i_newlines, i_other_characters);
 	printf("Done! \n");
 	
 	return 0;

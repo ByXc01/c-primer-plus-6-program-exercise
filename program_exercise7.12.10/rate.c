@@ -10,7 +10,8 @@
 
 #include <stdio.h>
 #include <string.h>
-#define PRINT "Please enter your categorries:"
+
+#define PRINT "Please enter your categories:"
 
 #define BEYOND 0.28
 #define BASIC  0.15
@@ -23,10 +24,12 @@
 void print(void);
 double choice(int i_number);
 double scan(void);
+
 int main(void)
 {
 	int i_enter_number;
 	double db_pay_tax;
+	
 	print();
 	while (scanf("%d", &i_enter_number) && i_enter_number != 5)
 	{
@@ -44,6 +47,7 @@ void print(void)
 {
 	for (int i_temp = 0; i_temp < strlen(PRINT); i_temp++)
 		printf("* ");
+	putchar('\n');
 	
 	printf("%s \n", PRINT);
 	printf("\n1)single                   2)the head of the household");
@@ -91,7 +95,7 @@ double choice(int i_number)
 				db_tax = (BASIC * BREAK4) + ((db_wage - BREAK4) * BEYOND);
 			break;
 		default:
-			printf("Enter Errer! \n");
+			printf("Enter Error! \n");
 			printf("Enter the 1~5 number \n");
 	}
 	
@@ -100,7 +104,8 @@ double choice(int i_number)
 
 double scan(void)
 {
-	double db_wage_temp = 0;
+	double db_wage_temp;
+	
 	printf("Please your  wage:");
 	scanf("%lf", &db_wage_temp);
 	

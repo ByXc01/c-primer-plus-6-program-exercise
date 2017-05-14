@@ -25,7 +25,7 @@
 
 #define OVERTIME_PAY 1.5            // 1.5 倍的加班時間
 #define BASIC_SALARY 10.0           // 基本工資/h
-#define BASIC_WEEK_HOUR 40          // 基本工作時間
+#define BASIC_WORK_HOUR 40          // 基本工作時間
 
 #define BASE1 (BREAK1 * RATE1)      // 總工資為 300
 #define BASE2 (BREAK2 * RATE2)      // 總工資為 450
@@ -106,7 +106,7 @@ void compute (double db_hour, double db_week)
 {
 	double db_total, db_tax, db_wage;
 	
-	if (db_hour <= BASIC_WEEK_HOUR)
+	if (db_hour <= BASIC_WORK_HOUR)
 		{
 			db_total = db_hour * BASIC_SALARY;
 
@@ -119,7 +119,7 @@ void compute (double db_hour, double db_week)
 		}
 	else
 		{
-			db_total = ((db_hour - BASIC_WEEK_HOUR) * OVERTIME_PAY + BASIC_WEEK_HOUR) * BASIC_SALARY;
+			db_total = ((db_hour - BASIC_WORK_HOUR) * OVERTIME_PAY + BASIC_WORK_HOUR) * BASIC_SALARY;
 			db_tax = (BREAK1 * RATE1) + ((BREAK2 - BREAK1) * RATE2) + ((db_total - BREAK2) * RATE3);
 		}
 

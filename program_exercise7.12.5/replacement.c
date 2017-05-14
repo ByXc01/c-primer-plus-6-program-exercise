@@ -1,6 +1,6 @@
-/* File: replace_ment.c
+/* File: replacement.c
  * Author: ByXc
- * About: convert hour and minute
+ * About: replacement . and !
  * Version: 1.0
  * Compilation: gcc 5.3.0 for MinGw
  * Date: 20170513
@@ -25,8 +25,7 @@ int main(void)
 				i_replace_number1++;
 				break;
 			case '!':
-				putchar('!');
-				putchar('!');
+				printf("!!");
 				i_replace_number2++;
 				break;
 			default:

@@ -9,15 +9,16 @@
  */
 
 #include <stdio.h>
+#define MAX 8
+
 int main(void)
 {
-	const short int CHD_MAX = 8;
-	double db_numbers[CHD_MAX], db_sums[CHD_MAX];
+	double db_numbers[MAX], db_sums[MAX];
 	double db_temp;
 	int i_count;
 	
-	printf("Please enter %hd numbers:", CHD_MAX);
-	for (i_count = db_temp = 0; i_count < CHD_MAX; i_count++)
+	printf("Please enter %hd numbers:", MAX);
+	for (i_count = db_temp = 0; i_count < MAX; i_count++)
 	{
 		scanf("%lf", &db_numbers[i_count]);
 		db_sums[i_count] = db_temp += db_numbers[i_count];
@@ -25,11 +26,11 @@ int main(void)
 	
 	printf("Numbers: ");
 	while (i_count-- > 0)
-		printf("%5g ", db_numbers[CHD_MAX - i_count - 1]);
+		printf("%5g ", db_numbers[MAX - i_count - 1]);
 	printf("\n");
 	
 	printf("Sums   : ");
-	while (++i_count < CHD_MAX)
+	while (++i_count < MAX)
 		printf("%5g ", db_sums[i_count]);
 	printf("\nThe all! \n"); 
 	

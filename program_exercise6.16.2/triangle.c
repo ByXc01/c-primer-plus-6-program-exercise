@@ -13,7 +13,7 @@ int main(void)
 {
 	int i_row, i_col;
 	
-	for (i_row = 1; i_row <= 5; i_row++)
+	for (i_row = 0; i_row = 5; i_row++)
 	{
 		for (i_col = 0; i_col < i_row; i_col++)
 			printf("$");

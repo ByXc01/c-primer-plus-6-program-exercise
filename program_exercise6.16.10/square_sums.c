@@ -1,6 +1,6 @@
-/* File: limit.c
+/* File: square_sums.c
  * Author: ByXc
- * About: limit
+ * About: squate sums
  * Version: 1.0
  * Compilation: gcc 5.3.0 for MinGw
  * Date: 20170513
