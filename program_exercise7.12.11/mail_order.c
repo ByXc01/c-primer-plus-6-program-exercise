@@ -14,23 +14,24 @@
 
 #define PRINT1 "Please enter the number of pound to buy:"
 #define PRINT2 "Please enter the vegetable alphabet you want to buy"
+
 #define ARTICHOKE		2.05
 #define BEET			1.15
 #define CARROT			1.09
 
-#define FREIGHT_PACKING_CHARGES1 6.5
-#define FREIGHT_PACKING_CHARGES2 14.00
-#define DISCOUNT_NUMBER          100
-#define DISCOUNT		0.05
+#define FREIGHT_PACKING_CHARGES1 6.5						// 包裝運費 <= 5 磅 
+#define FREIGHT_PACKING_CHARGES2 14.00						// 包裝運費 6 ~ 20 磅
+#define DISCOUNT_NUMBER          100						// 滿足條件才能享受折扣
+#define DISCOUNT		0.05								// 折扣
 
-#define BASE1			5
+#define BASE1			5									// 包裝磅數
 #define BASE2			20
-#define BEYOND			0.5
+#define BEYOND			0.5									// 超出部分按每磅0.5美元收費
 
-float fl_freight_packing_charges = 0;						//定义了全局变量
-double db_cargo_price = 0, db_total_cost = 0;
-float fl_pound = 0;
-
+float fl_freight_packing_charges = 0;						// 包裝運費
+double db_cargo_price = 0, db_total_cost = 0;				// 貨品價格和總成本
+float fl_pound = 0;											// 購買的磅數
+	
 void choice(char ch_letter);
 void print(void);
 void compute(void);
@@ -42,22 +43,16 @@ int main(void)
 	
 	print();
 	
-	while (scanf(" %c", &ch_enter))
+	while ((ch_enter = getchar()) != 'q' || ch_enter != 'Q')			// q 退出
 	{
 		if (isalpha(ch_enter))
 		{
-			ch_enter = toupper(ch_enter);
-			if ('Q' == ch_enter)
-				break;
-			else
-				choice(ch_enter);
+			ch_enter = toupper(ch_enter);								// 將輸入轉換為大寫字母
+			
+			while (getchar() != '\n')									// 清除多餘的輸入
+				continue;
+			choice(ch_enter);
 		}
-		else
-		{
-			printf("Error, Please a number. \n");
-			continue;
-		}
-		
 		print();
 	}
 	compute();
@@ -91,10 +86,10 @@ void choice(char ch_letter)
 		case 'A':
 			printf("You picked a artichoke. \n");
 			printf("%s \n", PRINT1);
-			fl_cpound = scan();
+			fl_cpound = scan();										// 輸入磅數
 			
-			db_cargo_price += fl_cpound * ARTICHOKE;
-			fl_pound += fl_cpound;
+			db_cargo_price += fl_cpound * ARTICHOKE;				// 計算計算貨物的價格
+			fl_pound += fl_cpound;									// 累加磅數
 			
 			printf("Do you want to continue to choose other vegetables, enter Q to settlement. \n");
 			break;
@@ -138,19 +133,20 @@ float scan(void)
 void compute(void)
 {
 	float fl_discount = 0;
+	
 	if (fl_pound <= BASE1)
 		fl_freight_packing_charges = FREIGHT_PACKING_CHARGES1;
 	else if (fl_pound <= BASE2)
 		fl_freight_packing_charges = FREIGHT_PACKING_CHARGES2;
 	else
-		fl_freight_packing_charges = FREIGHT_PACKING_CHARGES2 + (fl_pound - FREIGHT_PACKING_CHARGES2) * BEYOND;
+		fl_freight_packing_charges = FREIGHT_PACKING_CHARGES2 + (fl_pound - FREIGHT_PACKING_CHARGES2) * BEYOND;			// 計算超出磅數金額
 
-	if (db_cargo_price >= DISCOUNT_NUMBER)
+	if (db_cargo_price >= DISCOUNT_NUMBER)																				// 檢測是否符合折扣條件
 	{
-		fl_discount = db_cargo_price * DISCOUNT;
-		db_cargo_price *= 1.0 - DISCOUNT;
+		fl_discount = db_cargo_price * DISCOUNT;																		// 計算打折金額
+		db_cargo_price *= 1.0 - DISCOUNT;																				// 計算打折后的總額
 	}
-	db_total_cost = db_cargo_price + fl_freight_packing_charges;
+	db_total_cost = db_cargo_price + fl_freight_packing_charges;														// 成本總額
 	
 	printf("cargo price: %g, freight and packing charges: %g, pound: %g, discount: %g,"
 			"total cost: %g \n", db_cargo_price, fl_freight_packing_charges, fl_pound,
