@@ -12,30 +12,29 @@
 #include <stdio.h>
 #include <ctype.h>
 
-void binary_operation(char ch_choice, float fl_are_operand, float fl_operand);
-void display(void);
-void input(char i_choice);
+void binary_operation(char ch_choice, float fl_are_operand, float fl_operand);		// 計算函數
+void display(void);						// 菜單函數
+void input(char i_choice);				// 輸入函數
 
 int main(void)
 {
     char ch_letter;
 
     display();
-    while ((ch_letter = getchar()) != 'q')
-    {
-        while (getchar() != '\n')
+    while ((ch_letter = getchar()) != 'q')			 // 輸入q退出
+		{
+        while (getchar() != '\n')					 // 跳過多餘輸入
             continue;
 
-        if (ch_letter == 'a' || ch_letter == 's' || ch_letter == 'm' || ch_letter == 'd')
-            input(ch_letter);
+        if (ch_letter == 'a' || ch_letter == 's' || ch_letter == 'm' || ch_letter == 'd')		// 檢測是否正確輸入           input(ch_letter);
         else
         {
-            printf("Please enter error! Please enter a, s, m, d or q. \n");
+            printf("Please enter error! Please enter a, s, m, d or q. \n");						// 提示用戶重新輸入
             continue;
         }
         display();
     }
-    printf("Wlelcome to use. goodbye. \n");
+    printf("Welcome to use. goodbye. \n");
     
     return 0;
 }
@@ -50,12 +49,12 @@ void display(void)
 
 void input(char ch_choice)
 {
-    float fl_first_number, fl_second_number;
-    char ch_error;
+    float fl_first_number, fl_second_number;			// 第一、二個數字
+    char ch_error;										// 保存錯誤的輸入
     _Bool B_brue;
 
     printf("Enter first number:");
-    while ((B_brue = (scanf("%f", &fl_first_number) != 1)))
+    while ((B_brue = (scanf("%f", &fl_first_number) != 1)))		// 輸入錯誤無線跳過
     {
         while ((ch_error = getchar()) != '\n')
             putchar(ch_error);
@@ -75,9 +74,9 @@ loop:
              printf("Please enter a nubmer, such as 2.5, -1.7E8, or 3:");
          }
 
-        if (ch_choice == 'd' && fl_second_number == 0)
+        if (ch_choice == 'd' && fl_second_number == 0)			// 零不能做除數
         {
-            printf("Zoro divisor cannot do. Please enter again try. \n");
+            printf("Zero cannot do divisor. Please enter again try. \n");
             goto loop;
         }
         else

@@ -18,7 +18,7 @@
 #define WAGE1 8.75
 #define WAGE2 9.33
 #define WAGE3 10.0
-#define WAGE4  11.20
+#define WAGE4 11.20
 
 #define BREAK1 300.0                // 稅率的第一個分界
 #define BREAK2 450.0                // 稅率的第二個分界
@@ -34,8 +34,8 @@
 
 void display(void);                 // 輸出菜單函數
 void choice(int);                    // 選擇函數
-void compute ();					 // 計算函數
-double scan ();
+void compute (double, double);					 // 計算函數
+double scan (void);
 
 int main(void)
 {

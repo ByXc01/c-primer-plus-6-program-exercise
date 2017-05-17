@@ -1,6 +1,6 @@
-/* File: power.c
+/* File: power_recursion.c
  * Author: ByXc
- * About: power
+ * About: power recursion
  * Version: 1.0
  * Compilation: gcc 5.3.0 for MinGw
  * Date: 20170513
@@ -17,6 +17,7 @@
 
 double judge(double, int);                                  //判斷操作數
 double power(double, int);                                  //計算
+
 int main(void)
 {
     double db_input, db_results;
@@ -44,8 +45,6 @@ double judge(double db_number, int i_index)
 {
     double db_xpower;
     int i_absolut_value;
-
-    //i_absolut_value = i_index > 0 ? i_index : -i_index;           //求絕對值
 
     if (0 == db_number && 0 == i_index)                             //返回0好判斷， 0的0次冪沒定義
         return 0;
@@ -79,5 +78,5 @@ double power(double db_base, int i_exponted)
 
 /* 對遞歸真的很難理解， 這個power()函數的遞歸我還是
  * 參考程序清單9.7的。 照c primer plus對尾遞歸的定義
- * 我這算不算爲遞歸呢。 其實還可以直接return的
+ * 我這也算尾遞歸呢。 其實直接return的效率更高
  */

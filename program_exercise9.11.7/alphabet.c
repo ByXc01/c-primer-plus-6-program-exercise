@@ -44,11 +44,6 @@ int letter_number(char ch_character)
             return ch_character - CHD_UPPCODE + 1;      //開始是65所以要加1
         if (islower(ch_character))                      //其實可以直接else
             return ch_character - CHD_LOWCODE + 1;      //開始是97所以要加1
-        else
-        {
-            printf("Program error! \n");
-            return 0;                                   //測試異常情況
-        }
     }
 
     return -1;                                          //最後處理非字母

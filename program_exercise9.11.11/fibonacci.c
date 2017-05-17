@@ -43,7 +43,7 @@ int main(void)
 			recursion_version(1, 1, i_number);
 			putchar('\n');
 		}
-		printf("Please enter next integer. (Enter a non numberc program will be presented!) \n");
+		printf("Please enter next integer. (Enter a non number program will be quit!) \n");
 	}
 
 	printf("Hope you will like this program, goodbye! \n");
@@ -60,12 +60,10 @@ void loop_version(int i_digit)
 
 	if (1 == i_digit)
 	       putchar('1');
-	else if (2 == i_digit)
-		printf("%lu %lu \n", lu_fl1, lu_fl2);
 	else
 	{
 		printf("%lu %lu ", lu_fl1, lu_fl2);
-		for (i_count = 3; i_count <= i_digit; i_count++)
+		for (i_count = 2; i_count < i_digit; i_count++)				// 大於2開始循環
 		{
 
 			lu_sum = lu_fl1 + lu_fl2;
@@ -81,11 +79,11 @@ void loop_version(int i_digit)
 
 void recursion_version(unsigned long lu_fl1, unsigned long lu_fl2, int i_digit)
 {
-	unsigned long lu_sum;
+	unsigned long lu_sum;						// 遞歸的太爛了，對遞歸還是不太了解，有空我再做一遍。 此版本大家笑話一下就好了 -_-!!
 
 	if (1 == i_digit)
 		putchar('1');
-	else if (2 == i_digit && (1 == lu_fl1 && 1 == lu_fl1))
+	else if (2 == i_digit && 1 == lu_fl1)
 		printf("1 1");	
 	else if (i_digit > 2)
 	{

@@ -3,7 +3,7 @@
  * About: letter eof
  * Version: 1.0
  * Compilation: gcc 5.3.0 for MinGw
- * Date: 20170513
+ * Date: 2017051
  * Github: ByXc01
  * Blog: http://ByXc01.github.io
  */
@@ -29,7 +29,7 @@ int main(void)
             if (islower(ch_character))
                 i_lowercase_letter++;
         }
-        else 
+        else 										// 在標準答案中其它字符也納入計算了， 因題目沒要求我就沒添加
         {
             if (getchar() != '\n')
                continue;

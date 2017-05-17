@@ -1,12 +1,13 @@
 /* File: print_eof.c
  * Author: ByXc
- * About: print eof
+ * About: print eof, 現在有一個問題是每次回車確認都會當做一個字符輸入
  * Version: 1.0
  * Compilation: gcc 5.3.0 for MinGw
  * Date: 20170513
  * Github: ByXc01
  * Blog: http://ByXc01.github.io
  */
+
 
 #include <stdio.h>
 #include <ctype.h>
@@ -19,7 +20,7 @@ int main(void)
 	int ch_character;
 	const short CHD_NUM = 64;
 
-	for (int i_count = 0; (ch_character = getchar()) != EOF ; i_count++)		//如果輸ctrl + d就會直接退出，不顯示字符和編號
+	for (int i_count = 0; (ch_character = getchar()) != EOF ; i_count++)		//如果輸ctrl + d(windows是 ctrl + z)就會直接退出，不顯示字符和編號
 	{
 		if (iscntrl(ch_character))
 			{

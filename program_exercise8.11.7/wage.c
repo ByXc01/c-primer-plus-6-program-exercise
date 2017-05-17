@@ -1,146 +1,149 @@
+/* File: wage_plus.c
+ * Author: ByXc
+ * About: wage plus
+ * Version: 1.0
+ * Compilation: arm-linux-androideabi-clang 4.0
+ * Date: 20170511
+ * Github: ByXc01
+ * Blog: http://ByXc01.io
+ */
+
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
-#define RATE1 0.15
-#define RATE2 0.2
-#define RATE3 0.25
+#define RATE1 0.15                  // <= 300 的稅率
+#define RATE2 0.20                  // <= 450 的稅率
+#define RATE3 0.25                  // >  450 的稅率
 
-#define BREAK1 300.0
-#define BREAK2 450.0
+#define WAGE1 8.75
+#define WAGE2 9.33
+#define WAGE3 10.0
+#define WAGE4 11.20
 
-#define BASE1 ((1.0 - RATE1) * BREAK1)
-#define BASE2 (BASE1 + ((1.0 - RATE2) * (BASIC_WAGE - BREAK1)))
+#define BREAK1 300.0                // 稅率的第一個分界
+#define BREAK2 450.0                // 稅率的第二個分界
 
-#define BASE3 (BASE1 + (1.0 - RATE2) * (BREAK2 - BREAK1))
-#define BASE4 (BASE3 + (1.0 - RATE3) * ((db_week_hour - CI_OVERTIME) * CFL_OVERTIME_PAY * db_hour_wage))
-#define BASE5 ((BREAK1 + (BREAK2 - BREAK1)) + ((db_week_hour - CI_OVERTIME) * db_hour_wage * CFL_OVERTIME_PAY))
-#define BASE6 (BREAK1 * RATE1 + (BREAK2 - BREAK1) * RATE2)
+#define OVERTIME_PAY 1.5            // 1.5 倍的加班時間
+#define BASIC_SALARY 10.0           // 基本工資/h
+#define BASIC_WORK_HOUR 40          // 基本工作時間
 
-#define BASIC_WAGE (db_week_hour * db_hour_wage)
-#define OVERTIME_PAY ((db_week_hour - CI_OVERTIME) * db_hour_wage * CFL_OVERTIME_PAY)
+#define BASE1 (BREAK1 * RATE1)      // 總工資為 300
+#define BASE2 (BREAK2 * RATE2)      // 總工資為 450
 
-#define PRINT "Enter the number corresponding to the pay rate or acrion: "
+#define PRINT "Enter the number corresponding to the desired pay rate or action:"
 
-#define HOUR_WAGE1 8.75
-#define HOUR_WAGE2 9.33
-#define HOUR_WAGE3 10.00
-#define HOUR_WAGE4 11.20
+void display(void);                      // 輸出菜單函數
+void choice(char);                       // 選擇函數
+void compute (double, double);					 // 計算函數
+double scan (void);
 
-const float CFL_OVERTIME_PAY = 1.5;
-const float CFL_BASIC_SALARY = 10.0;
-const int CI_OVERTIME = 40;
-char ch_character;
-
-void choice(char ch_letter);
-void compute(double db_week_hour, double db_hour_wage);
-void print(void);
 int main(void)
 {
-    print();
-    while ((ch_character = getchar()) != 'q')
-    {
-        choice(ch_character);
+	char ch_type;
 
-        while (getchar() != '\n')
-            continue;
-        print();
-    }
-    printf("Done! \n");
+	display ();
+	while ((ch_type = getchar()) && (ch_type != 'q' || ch_type != 'Q'))
+	{
+						
+		while (getchar() != '\n')
+			continue;
+		
+		ch_type = toupper(ch_type);
+		if (ch_type < 'A'  || ch_type > 'D')
+			{
+				printf ("Enter erroe, try again \n");
+				continue;
+			}
+			choice (ch_type);
 
-    return 0;
+			display ();
+	}
+		
+	return 0;
 }
 
-void print(void)
+double scan(void)
 {
-    for (int i_temp = 0; i_temp < strlen(PRINT); i_temp++)
-        putchar('*');
-
-    printf("\n%s\n", PRINT);
-    printf("a) $8.75/hr           b) $9.33/hr \n");
-    printf("c) $10.00/hr          d) $11.20/hr \n");
-    printf("q) quit \n");
-
-    for (int i_temp = 0; i_temp < strlen(PRINT); i_temp++)
-        putchar('*');
-    putchar('\n');
+	double db_week_hour;
+	printf ("Please enter week hour: ");
+	while (scanf ("%lf", &db_week_hour) == 0)
+	{
+		while (getchar () != '\n')
+			continue;
+		printf ("Enter error, try again! \n");
+		printf ("Please enter week hour: ");
+		continue;
+	}
+	return db_week_hour;
 }
-
-void choice(char ch_letter)
+void choice (char ch_type)
 {
-    double db_temp;
-    
-loop:
-    if (ch_letter <= 'd' && ch_letter >= 'a')
-    {
-        switch (ch_letter)
-        {
-            case 'a':
-                printf("Please enter week hour: \n");
-                scanf("%lf", &db_temp);
-                compute(db_temp, HOUR_WAGE1);
-                break;
+	double db_hour;
 
-            case 'b':
-                printf("Please enter week hour: \n");
-                scanf("%lf", &db_temp);
-                compute(db_temp, HOUR_WAGE2);
-                break;
-
-            case 'c':
-                printf("Please enter week hour: \n");
-                scanf("%lf", &db_temp);
-                compute(db_temp, HOUR_WAGE3);
-                break;
-
-            case 'd':
-                printf("please enter week hour: \n");
-                scanf("%lf", &db_temp);
-                compute(db_temp, HOUR_WAGE4);
-                break;
-
-            default:
-                printf("Error! \n");
-        }
-    }
-    else
-    {
-        printf("Please enter a~b lettere:");
-
-        ch_character = getchar();
-        while (getchar != '\n')
-            continue;
-
-        goto loop;
-    }
+	switch (ch_type)
+	{
+		case 'A':
+			db_hour = scan ();
+			compute (db_hour, WAGE1);
+			break;
+		case 'B':
+			db_hour = scan ();
+			compute (db_hour, WAGE2);
+			break;
+		case 'C':
+			db_hour = scan ();
+			compute (db_hour, WAGE3);
+			break;
+		case 'D':
+			db_hour = scan ();
+			compute (db_hour, WAGE4);
+			break;
+		default:
+			printf (" Program error! \n");
+			break;
+		}
 }
 
-void compute(double db_week_hour, double db_hour_wage)
+void compute (double db_hour, double db_week)
 {
-    double db_week_wage;
-    double db_tax, db_total_wage;
+	double db_total, db_tax, db_wage;
+	
+	if (db_hour <= BASIC_WORK_HOUR)
+		{
+			db_total = db_hour * BASIC_SALARY;
 
-    if (db_week_hour <= CI_OVERTIME)
-    {
-        if (BASIC_WAGE <= BREAK1)
-        {
-            db_total_wage = BASIC_WAGE;
-            db_week_wage = BASIC_WAGE * (1.0 - RATE1);
-            db_tax = BASIC_WAGE * RATE1;
-        }
+			if (db_total <= BREAK1)
+				db_tax = db_total * RATE1;
+			else
+				db_tax = (BREAK1 * RATE1) + ((db_total - BREAK1) * RATE2);
 
-        else if (BASIC_WAGE <= BREAK2)
-        {
-            db_total_wage = BASIC_WAGE;
-            db_week_wage = BASE2;
-            db_tax = db_total_wage - db_week_wage;
-        }
-    }
-    else
-    {
-        db_total_wage = BASE5;
-        db_week_wage = BASE4;
-        db_tax = OVERTIME_PAY + BASE6;
-    }
+			db_wage = db_total - db_tax;
+		}
+	else
+		{
+			db_total = ((db_hour - BASIC_WORK_HOUR) * OVERTIME_PAY + BASIC_WORK_HOUR) * BASIC_SALARY;
+			db_tax = (BREAK1 * RATE1) + ((BREAK2 - BREAK1) * RATE2) + ((db_total - BREAK2) * RATE3);
+		}
 
-    printf("Total wage is %3.2f, tax is %3.2f, tax is %3.2f. \n", db_total_wage, db_tax, db_week_wage);
-}
+	db_wage = db_total - db_tax;
+	printf ("Gross salary = %g, tax = %g, income = %g \n", db_total, db_tax, db_wage);
+	}
+
+	void display (void)
+	{
+		int i_temp;
+
+		for (i_temp = 0; i_temp < strlen (PRINT); i_temp++)
+			putchar ('*');
+		putchar ('\n');
+
+		printf ("%s \n", PRINT);
+		printf ("A) $8.75/hr                B) $9.33/hr \n");
+		printf ("C) $10.10/hr               D) $11.20/hr \n");
+		printf ("5) quit \n");
+
+		for (i_temp = 0; i_temp < strlen (PRINT); i_temp++)
+			putchar ('*');
+		putchar ('\n');
+	}

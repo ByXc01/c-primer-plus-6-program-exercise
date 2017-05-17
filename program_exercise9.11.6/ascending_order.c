@@ -1,9 +1,19 @@
-/* 20170330 -- ByXc */
+/* File: ascending_order.c
+ * Author: ByXc
+ * About: ascending_order
+ * Version: 1.0
+ * Compilation: gcc 5.3.0 for MinGw
+ * Date: 20170330
+ * Github: ByXc01
+ * Blog: http://ByXc01.github.io
+ */
+
 /* 人笨啊， 做了好久。 最後只好窮舉所有的可能 */
 #include <stdio.h>
 
 void ascending_sequence(double *, double *, double *);
 void swap3(double *, double *, double*);					//此版本更簡便
+
 int main(void)
 {
     double db_number1, db_number2, db_number3;
@@ -12,13 +22,13 @@ int main(void)
     while (scanf("%lf %lf %lf", &db_number1, &db_number2, &db_number3) == 3)
     {
         printf("Originally number1 = %g, number2 = %g, number3 = %g \n", db_number1, db_number2, db_number3);
-        //ascending_sequence(&db_number1, &db_number2, &db_number3);
-		swap3(&db_number1, &db_number2, &db_number3);
+        ascending_sequence(&db_number1, &db_number2, &db_number3);
+		//swap3(&db_number1, &db_number2, &db_number3);
         printf("Now number1 = %g, number2 = %g, number3 = %g \n", db_number1, db_number2, db_number3);
 
         printf("Please continue  to enter three digits(q to quit): ");
     }
-    printf("End if the program, thank you! \n");
+    printf("End the program, thank you! \n");
 
     return 0;
 }

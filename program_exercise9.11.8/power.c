@@ -19,6 +19,7 @@
 #include <stdio.h>
 
 double power(double, int);                  //正、負整數計算函數
+double xpower(double, int);					// 這是標準答案的做法， 處理負次冪此函數使用了"取絕對值，然後再調用自身一次(遞歸)
 int main(void)
 {
     double db_input;
@@ -35,7 +36,7 @@ int main(void)
         
         printf("Enter enxt pair of numbers or q to quit. \n");
     }
-    printf("Hope ypu enjoyed this power trip -- Bye! \n");
+    printf("Hope you enjoyed this power trip -- Bye! \n");
 
     return 0;
 }
@@ -56,8 +57,30 @@ double power(double db_number, int i_exp)
     for (i_count = 1; i_count <= i_absolute_value; i_count++)
             db_power *= db_number;
 
-    if (i_exp > 0)
-        return db_power;                                //判定指數爲正整數， 直接返回
-    else if (i_exp < 0)
-        return (1.0 / db_power);                          //判定指數爲負整數， 根據公式計算
+    if (i_exp < 0)
+        return (1.0 / db_power);                          // 判定指數爲負整數， 根據公式計算
+	
+	return db_power;                                      // 默認指數爲正整數， 直接返回
+}
+
+double xpower(double a, int b)		/* function definition */
+{
+	double pow = 1;
+	int i;
+	
+	if (b == 0)
+	{
+		if ( a == 0)
+			printf("0 to the 0 undefined; using 1 as the value \n");
+		pow = 1.0;
+	}
+	else if (a == 0)
+		pow = 0.0;
+	else if (b > 0)
+		for (i = 1; i <= b; i++)
+			pow *= a;
+	else	/* b < 0 */
+		pow = 1.0 / xpower(a, -b);							// 傳遞-b， 負負得正
+
+	return pow;												/* return the value of pow */
 }

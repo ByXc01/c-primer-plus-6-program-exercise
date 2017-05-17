@@ -10,23 +10,23 @@
 
 #include <stdio.h>
 
-int input(void);			//判斷操作數
+int input(void);				//判斷操作數
 void to_base_n(int, int);		//進制轉換
 
 int main(void)
 {
 	int i_number, i_base;
 
-	printf("Please enter a numer to convert and a hexadecimal number to convert. \n");
+	printf("Please enter a numer to convert and a radix number to convert. \n");
 
 	while (scanf("%d", &i_number))
 	{
 		i_base = input();
 		
-		printf("Hex equivalnt:");
+		printf("Radix equivalent:");
 		to_base_n(i_number, i_base);
 
-		printf("\nPlease enter the number to be converted and the number of hxadecimal to be converted. (q to quit): ");
+		printf("\nPlease enter the number to be converted and the number of radix to be converted. (q to quit): ");
 	}
 	printf("Hope you will like this program, goodbye! \n");
 
@@ -36,12 +36,12 @@ int main(void)
 int input(void)
 {
 	int i_try_input;
-	_Bool B_jadge;
+	_Bool B_judge;
 	char ch_error_input;
 
-	while ((B_jadge = scanf("%d", &i_try_input)) != 1 || (i_try_input > 10 || i_try_input < 2))
+	while ((B_judge = scanf("%d", &i_try_input)) != 1 || (i_try_input > 10 || i_try_input < 2))
 	{
-		if (!B_jadge)						//處理錯誤輸入
+		if (!B_judge)						//處理錯誤輸入
 		{	
 			while ((ch_error_input = getchar()) != '\n')
 			       putchar(ch_error_input);
@@ -55,15 +55,16 @@ int input(void)
 }
 
 
-void to_base_n(int i_decimal, int i_hex)
+void to_base_n(int i_decimal, int i_radix)
 {
 	int i_results;
 
-	i_results = i_decimal % i_hex;
-	if (i_decimal >= i_hex)
-		to_base_n(i_decimal / i_hex, i_hex);
+	i_results = i_decimal % i_radix;
+	if (i_decimal >= i_radix)
+		to_base_n(i_decimal / i_radix, i_radix);
 
 	printf("%d", i_results);
+	//putchar('0' + i_results);				// 字符0和數字運算， 是把i_results轉換為數字字符
 
 	return;
 }	

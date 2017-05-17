@@ -8,13 +8,22 @@
  * Blog: http://ByXc01.github.io
  */
 
-/* 程序很簡單，也可以設置用戶輸入來判斷 */
+/* 程序很簡單，因我直接是調用函數測試的。所以參考標準答案的方法 */
 #include <stdio.h>
+
 double min(double db_x, double db_y);
 int main(void)
- {
-  printf("%g \n", min(3.0, 2.0)); 			//簡單的驅動程序測試成功，
-  return 0;
+{
+    double db_number1, db_number2;
+	
+	printf("Enter two numbers (q to quit): ");
+	while (scanf("%lf %lf", &db_number1, &db_number2) == 2)
+	{
+		printf("The smaller number is %g. \n", min(db_number1, db_number2)); 			//簡單的驅動程序測試成功，
+		printf("Next two value (q to quit): ");
+	}
+	
+	return 0;
 }
 double min(double db_x, double db_y) 
 { 

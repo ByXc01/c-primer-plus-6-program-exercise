@@ -12,18 +12,26 @@
 void chline(char, int, int);
 int main(void)
 {
-	chline('@', 6, 2);
+	char ch_character;
+	int i_rows, i_cols;
+	
+	printf("Please enter character, rows, and columns, respectively. Spaces separate: ");
+	while (scanf(" %c %d %d", &ch_character, &i_rows, &i_cols) == 3)
+	{
+		chline(ch_character, i_rows, i_cols);
+		printf("Please enter next character, rows, and columns, respectively. Spaces separate:");
+	}
 	
 	return 0;
 }
 
-void chline(char ch_character, int i_line, int i_row)
+void chline(char ch_character, int i_row, int i_col)
 {
 	int i_index, i_count;
 	
     for (i_count = 0; i_count < i_row; i_count++)
     {
-    	for (i_index = 0; i_index < i_line; i_index++)
+    	for (i_index = 0; i_index < i_col; i_index++)
           putchar(ch_character);
         putchar('\n');
      }

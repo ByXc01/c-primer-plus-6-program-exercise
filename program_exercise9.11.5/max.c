@@ -9,6 +9,7 @@
  */
 
 #include <stdio.h>
+
 void larger_of(double *, double *);
 int main(void)
 {
@@ -24,5 +25,7 @@ int main(void)
 }
 void larger_of(double *pdb_x, double *pdb_y)
 {
-  *pdb_x = *pdb_x < *pdb_y ? *pdb_y : (*pdb_y = *pdb_x);		//如果覺得難于理解的話可拆分兩個三元運算符
+	// 也可以用 if else 語句
+	*pdb_x = *pdb_x < *pdb_y ? *pdb_y : (*pdb_y = *pdb_x);		// 如果覺得難于理解的話可拆分兩個三元運算符
+	//*pdb_x = *pdb_y = *pdb_x < *pdb_y ? *pdb_y : *pdb_x;		// 這是標準答案的做法， 比我做的簡單多了
 }
