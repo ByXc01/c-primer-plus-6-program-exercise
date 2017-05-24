@@ -58,7 +58,7 @@ void copy_pointers(double * dbp_target, const double * cdbp_source, double * dbp
 	while (cdbp_pointer < dbp_max)
 	{
 		// 利用幾個 * sizeof (double) 的差進行計算
-		*(dbp_target + (int)(cdbp_pointer - cdbp_source)) = *cdbp_pointer;    // 這裡不可用用*cdbp_pointer++,未定義序列點問題
+		*(dbp_target + (int)(cdbp_pointer - cdbp_source)) = *cdbp_pointer;    // 這裡不可用*cdbp_pointer++,未定義序列點問題
 		cdbp_pointer++;
 	}
 }
