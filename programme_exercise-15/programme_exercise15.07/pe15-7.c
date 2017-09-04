@@ -1,5 +1,5 @@
 // pe15-7.c
-// 本人人修補了幾個嚴重 bug
+// 本人修補了幾個嚴重的 bug
 
 #include <stdio.h>
 #include <string.h>
@@ -12,17 +12,14 @@
 #define RIGHT       0x10000
 #define ALIGN_MASK  0x18000
 
-#define REGULAR     0x00000  這個宏是多餘的
+// #define REGULAR     0x00000  這個宏是多餘的
 #define BOLD        0x20000
 #define ITALIC      0x40000
 #define UNDERLINE   0x80000
-#define STYLE_MASK  0xE0000  這個宏也是多餘的
-
-#define REGULAR     0x00000
+// #define STYLE_MASK  0xE0000  這個宏也是多餘的
 #define BOLD        0x20000
 #define ITALIC      0x40000
 #define UNDERLINE   0x80000
-#define STYLE_MASK  0xE0000
 #define SIZE_SHIFT  8
 
 typedef unsigned long font;
