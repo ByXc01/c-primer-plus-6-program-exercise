@@ -13,13 +13,13 @@
 double average_number(double, double);
 int main(void)
 {
-    printf("%f \n", average_number(2.0, 5.0));			   	  // 簡單的測試
+    printf("%f \n", average_number(5.0, 6.0));			   	  // 簡單的測試
 
     return 0;
 }
 
 double average_number(double db_value, double db_number)
 {
-    return 2.0 / ( 1.0 / db_value + 1.0 / db_number);         //項的個數處以（各項數的數倒數之和） 
+    return 1.0 / ((1.0 / db_value + 1.0 / db_number) / 2);    //（各項數的數倒數之和）除以項的個數，然後再倒數
 }
 
