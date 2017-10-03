@@ -32,7 +32,7 @@ struct flight                                                               // �
 
 void home_page(void);
 void menu(void);
-char get_let(char *);
+char get_let(const char *);
 int choice(char);                                                           // 讀入字符，返回當前字符索引
 void initialization(struct info *, struct info *[], int);                   // 初始化
 void get_data(struct info *, struct flight *, int);                         // 將已經保存的航班信息賦值給目標數組。但有可能初始化兩次
@@ -143,7 +143,7 @@ void menu(void)
     puts("g) Quit");
 }
 
-char get_let(char * chp_string)
+char get_let(const char * chp_string)
 {
     char ch_character;
 

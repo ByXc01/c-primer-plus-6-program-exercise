@@ -33,7 +33,7 @@
 
 void info_menu(unsigned long);
 void clean(void);
-char get_let(char *);
+char get_let(const char *);
 
 int main(void)
 {
@@ -109,7 +109,7 @@ void clean(void)
         continue;
 }
 
-char get_let(char * chp_string)
+char get_let(const char * chp_string)
 {
     char ch_character;
 

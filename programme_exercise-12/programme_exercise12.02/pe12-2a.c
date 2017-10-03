@@ -1,4 +1,4 @@
-/* File: fe12-2a.c */
+// File: pe12-2a.c
 
 #include <stdio.h>
 #define METRIC 100
